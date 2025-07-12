@@ -26,7 +26,7 @@ def start(name, workspace) -> None:
 
     click.echo("Successfully started!")
     click.echo(
-        f"DESC: {response.description}\tID: {response.id}\tSTART TIME: {datetime.strftime(response.start, '%d/%m/%Y, %H:%M:%S')}"
+        f"DESC: {response.description}\tID: {response.id}\tTIME: {datetime.strftime(response.start, '%Y-%m-%d %H:%M:%S')} - In process"
     )
 
 
@@ -42,7 +42,7 @@ def stop(workspace, id) -> None:
 
     click.echo("Successfully stopped!")
     click.echo(
-        f"DESC: {response.description}\tID: {response.id}\tSTART TIME: {datetime.strftime(response.start, '%d/%m/%Y, %H:%M:%S')}\tEND TIME: {response.end}"
+        f"DESC: {response.description}\tID: {response.id}\tTIME: {datetime.strftime(response.start, '%Y-%m-%d %H:%M:%S')} - {response.end}"
     )
 
 
