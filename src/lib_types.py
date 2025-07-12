@@ -22,8 +22,12 @@ class TimeEntry:
     task_id: str | None = None
     type_: TimeEntryType | None = None
 
-    def _transform_datetime_to_str(self, datetime_obj: datetime) -> str:
-        return datetime_obj.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    def _transform_datetime_to_str(self, datetime_obj: datetime | None) -> str | None:
+        return (
+            None
+            if not datetime_obj
+            else datetime_obj.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+        )
 
     def to_json(self) -> dict:
         return {
